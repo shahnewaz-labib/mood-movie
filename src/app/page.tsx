@@ -1,7 +1,5 @@
 import { Montserrat } from "next/font/google";
-import MovieCard from "./MovieCard";
 import MovieContainer from "./MovieContainer";
-import { fetchActionMovies } from "./apiCalls";
 // If loading a variable font, you don't need to specify the font weight
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -9,10 +7,7 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-const Home = async () => {
-  const movies = await fetchActionMovies();
-  console.log(movies);
-
+function Home() {
   return (
     <div
       className={` ${montserrat.variable} font-montserrat flex justify-center bg-black `}
@@ -21,10 +16,10 @@ const Home = async () => {
         <h1 className="font-bold text-white">Mood-Movie</h1>
 
         <MovieContainer />
-        <MovieCard />
+        {/* <MovieCard /> */}
       </div>
     </div>
   );
-};
+}
 
 export default Home;

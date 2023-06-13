@@ -1,25 +1,23 @@
+import Image from "next/image";
 import React from "react";
+import type { MovieCardProps } from "./Interfaces";
 
-export default function MovieCard() {
+const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
-        <img
+        <Image
           src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/avengers-infinity-war_89e0d364_240x360_crop_center.progressive.jpg"
           alt="Shoes"
+          width={240}
+          height={360}
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          Shoes!
-          <div className="badge badge-secondary">NEW</div>
-        </h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
-        </div>
+        <h2 className="card-title">{movie.title}</h2>
       </div>
     </div>
   );
-}
+};
+
+export default MovieCard;

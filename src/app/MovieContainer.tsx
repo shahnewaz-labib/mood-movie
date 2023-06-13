@@ -1,6 +1,15 @@
+import MovieCard from "./MovieCard";
+import { fetchMovies } from "./apiCalls";
 
-export default function MovieContainer() {
+export default async function MovieContainer() {
+  const emotion = "Angry";
+  const movies = await fetchMovies(emotion);
+
   return (
-    <div>MovieContainer</div>
-  )
+    <div>
+      {movies.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
+      ))}
+    </div>
+  );
 }
