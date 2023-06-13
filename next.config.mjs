@@ -19,7 +19,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: ['cdn.shopify.com'],
+    domains: ['cdn.shopify.com', "www.themoviedb.org"],
   },
 
 };

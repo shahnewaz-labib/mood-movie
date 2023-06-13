@@ -5,7 +5,9 @@ const baseUrl = "https://api.themoviedb.org/3";
 
 function getGenres(emotion: string): string[] {
   const emotionMap: { [key: string]: string[] } = {
-    Angry: ["Action", "Comedy"],
+    Angry: ["Action"],
+    Happy: ["Drama", "Comedy"],
+    Sad: ["Drama"],
   };
 
   const resultArray = emotionMap[emotion];
