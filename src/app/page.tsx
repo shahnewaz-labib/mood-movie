@@ -9,9 +9,9 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-const Home = () => {
-  const movies = fetchActionMovies();
-  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxx", movies);
+const Home = async () => {
+  const movies = await fetchActionMovies();
+  console.log(movies);
 
   return (
     <div
