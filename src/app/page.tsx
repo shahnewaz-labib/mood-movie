@@ -9,24 +9,23 @@ const montserrat = Montserrat({
 });
 
 const Home = () => {
-
   interface Movie {
     id: number;
     title: string;
     // Add other properties if available in the response
   }
-  
-  const apiKey = '1821d649b656b8933a7de260fcf28ee1';
-  const baseUrl = 'https://api.themoviedb.org/3';
+
+  const apiKey = "1821d649b656b8933a7de260fcf28ee1";
+  const baseUrl = "https://api.themoviedb.org/3";
   const genreId = 28; // Genre ID for Action movies
-  
+
   const fetchActionMovies = async (): Promise<Movie[]> => {
     const url = `${baseUrl}/discover/movie?api_key=${apiKey}&with_genres=${genreId}`;
-  
+
     try {
       const response = await fetch(url);
-      const data = await response.json();
-  
+      const data: Movie[] = await response.json();
+
       if (response.ok) {
         const actionMovies: Movie[] = data.results;
         return actionMovies;
@@ -37,7 +36,7 @@ const Home = () => {
       throw new Error(`Failed to fetch action movies: ${error.message}`);
     }
   };
-  
+
   // Usage
   fetchActionMovies()
     .then((actionMovies) => {
@@ -46,9 +45,6 @@ const Home = () => {
     .catch((error) => {
       console.error(error);
     });
-  
-
-
 
   return (
     <div
@@ -56,7 +52,7 @@ const Home = () => {
     >
       <div className="text-center">
         <h1 className="font-bold text-white">Mood-Movie</h1>
-        
+
         <MovieContainer />
         <MovieCard />
       </div>
