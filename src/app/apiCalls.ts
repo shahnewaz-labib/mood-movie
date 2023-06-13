@@ -1,6 +1,9 @@
+import dotenv from "dotenv";
 import type { Movie, MovieData } from "./Interfaces";
 
-const apiKey = "1821d649b656b8933a7de260fcf28ee1";
+dotenv.config();
+
+const apiKey = process.env.TMDB_API_KEY as string;
 const baseUrl = "https://api.themoviedb.org/3";
 
 function getGenres(emotion: string): string[] {
