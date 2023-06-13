@@ -10,11 +10,11 @@ const montserrat = Montserrat({
 const Home = () => {
   return (
     <div
-      className={` ${montserrat.variable} font-montserrat flex h-screen justify-center bg-slate-300 `}
+      className={` ${montserrat.variable} font-montserrat flex justify-center bg-black `}
     >
       <div className="text-center">
         <h1 className="font-bold text-white">Yatada!</h1>
-        
+
         <p className=" text-white">Yet Another To (and) Do App</p>
         <MovieCard />
       </div>
