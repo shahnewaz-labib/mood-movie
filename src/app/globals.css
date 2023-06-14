@@ -3,7 +3,5 @@
 @tailwind utilities;
 
 
-body {
-    margin: 0;
-    height: 100%;
-  }
+html, body{min-height:100%;}
+body{height:100vh;}

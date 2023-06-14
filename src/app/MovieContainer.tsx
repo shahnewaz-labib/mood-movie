@@ -23,7 +23,7 @@ export default async function MovieContainer() {
   let movies = await fetchMovies(emotion);
   movies = shuffle(movies).slice(0, 3);
   return (
-    <div className="flex">
+    <div className=" flex flex-wrap justify-evenly bg-pink-950">
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}

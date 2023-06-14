@@ -9,15 +9,9 @@ const montserrat = Montserrat({
 
 function Home() {
   return (
-    <div
-      className={` ${montserrat.variable} font-montserrat flex justify-center bg-black `}
-    >
-      <div className="text-center">
-        <h1 className="font-bold text-white">Mood-Movie</h1>
-
-        <MovieContainer />
-        {/* <MovieCard /> */}
-      </div>
+    <div className={` ${montserrat.variable} font-montserrat  `}>
+      <MovieContainer />
+      {/* <MovieCard /> */}
     </div>
   );
 }
