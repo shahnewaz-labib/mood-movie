@@ -1,5 +1,5 @@
 import MovieCard from "./MovieCard";
-import { fetchMovies } from "./apiCalls";
+import { fetchMovies, uploadImage } from "./apiCalls";
 
 function shuffle<T>(array: T[]): T[] {
   let currentIndex = array.length;
@@ -22,6 +22,10 @@ export default async function MovieContainer() {
   const emotion = "Sad";
   let movies = await fetchMovies(emotion);
   movies = shuffle(movies).slice(0, 3);
+
+  //
+  const res = await uploadImage();
+
   return (
     <div className=" flex flex-wrap justify-evenly bg-pink-950">
       {movies.map((movie) => (

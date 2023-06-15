@@ -49,3 +49,12 @@ export const fetchMovies = async (emotion: string): Promise<Movie[]> => {
     throw new Error(`Failed to fetch action movies`);
   }
 };
+
+export const uploadImage = async () => {
+  const url = "http://localhost:8000/upload/";
+  const res = await fetch(url, {
+    method: "POST",
+    body: JSON.stringify({ time: new Date().toISOString() }),
+  });
+  console.log(res);
+};

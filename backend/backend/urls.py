@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from mmovie import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.hello_view, name='hello'),
+    path('upload/', views.upload_image),
+    path('hello/', views.hello_view),
 
 ]
