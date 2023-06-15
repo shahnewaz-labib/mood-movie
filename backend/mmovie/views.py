@@ -1,20 +1,37 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-
-def hello_view(request):
-    data = {
-        "message": "Everything will be fine in the end, I promise."
-    }
-    return JsonResponse(data)
+from PIL import Image
+import cv2
+import numpy as np 
+# from detectEmotion import getEmotion
+import cv2
+import numpy as np
 
 
 @csrf_exempt
 def upload_image(request):
+
     if request.method == 'POST' and request.FILES['image']:
         uploaded_image = request.FILES['image']
-        # Process the image here
-        # For example, you can save it to disk or perform further operations
-        return HttpResponse("Image uploaded successfully!")
+
+        # Open the uploaded image using PIL
+        # image = Image.open(uploaded_image)
+        # image.show()
+
+        # emotion = detectEmotion.getEmotion(uploaded_image)
+
+        img = cv2.imdecode(np.fromstring(uploaded_image.read(), np.uint8), cv2.IMREAD_UNCHANGED)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+        # result = DeepFace.analyze(img, actions=['emotion'])[0]["dominant_emotion"]
+        result = "Sad"
+
+        data = {
+            "emotion": result
+        }
+
+
+        return JsonResponse(data)
     else:
-        return HttpResponse("No image uploaded.")
+        return JsonResponse({"emotion": None})

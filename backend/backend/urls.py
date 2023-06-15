@@ -21,6 +21,4 @@ from mmovie import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('upload/', views.upload_image),
-    path('hello/', views.hello_view),
-
 ]
