@@ -3,34 +3,37 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from PIL import Image
 import cv2
-import numpy as np 
-# from detectEmotion import getEmotion
-import cv2
 import numpy as np
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+import detectEmotion
 
 
 @csrf_exempt
 def upload_image(request):
+    if request.method == "POST" and request.FILES["image"]:
+        uploaded_image = request.FILES["image"]
 
-    if request.method == 'POST' and request.FILES['image']:
-        uploaded_image = request.FILES['image']
+        images_directory = "images"
 
-        # Open the uploaded image using PIL
-        # image = Image.open(uploaded_image)
-        # image.show()
+        if not os.path.exists(images_directory):
+            os.makedirs(images_directory)
 
-        # emotion = detectEmotion.getEmotion(uploaded_image)
+        # Define the destination path where the image will be saved
+        image_path = os.path.join("images", "temp.jpg")
+        image_path = os.path.abspath(image_path)
 
-        img = cv2.imdecode(np.fromstring(uploaded_image.read(), np.uint8), cv2.IMREAD_UNCHANGED)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        # Save the uploaded image to the destination path
+        with open(image_path, "wb") as destination_file:
+            for chunk in uploaded_image.chunks():
+                destination_file.write(chunk)
 
-        # result = DeepFace.analyze(img, actions=['emotion'])[0]["dominant_emotion"]
-        result = "Sad"
+        emotion = detectEmotion.getEmotion(image_path)
+        data = {"emotion": emotion}
 
-        data = {
-            "emotion": result
-        }
-
+        os.remove(image_path)
 
         return JsonResponse(data)
     else:
