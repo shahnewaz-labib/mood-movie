@@ -1,5 +1,5 @@
-import "./globals.css";
 import React from "react";
+import "./globals.css";
 // import { type NextPage } from "next";
 // import Head from "next/head";
 // import Link from "next/link";
@@ -7,8 +7,8 @@ import React from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Yatada",
-  description: "Welcome to Next.js",
+  title: "MMovies",
+  description: "Welcome to MMovies",
 };
 
 export default function RootLayout({

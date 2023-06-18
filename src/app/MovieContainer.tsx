@@ -1,5 +1,5 @@
 import MovieCard from "./MovieCard";
-import { fetchMovies, uploadImage } from "./apiCalls";
+import { fetchMovies } from "./apiCalls";
 
 function shuffle<T>(array: T[]): T[] {
   let currentIndex = array.length;
@@ -24,7 +24,7 @@ export default async function MovieContainer() {
   movies = shuffle(movies).slice(0, 3);
 
   //
-  const res = await uploadImage();
+  // const res = await uploadImage();
 
   return (
     <div className=" flex flex-wrap justify-evenly bg-pink-950">
