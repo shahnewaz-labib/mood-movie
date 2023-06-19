@@ -5,6 +5,7 @@ import "./globals.css";
 // import Link from "next/link";
 // import { api } from "~/utils/api";
 import type { Metadata } from "next";
+import Navbar from "./Navbar";
 
 export const metadata: Metadata = {
   title: "MMovies",
@@ -20,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black">{children}</body>
+      <body className="bg-black">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
