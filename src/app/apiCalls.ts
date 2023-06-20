@@ -33,21 +33,27 @@ export const fetchMovies = async (emotion: string): Promise<Movie[]> => {
     separator = "%2C";
   });
 
-  const url = `${baseUrl}/discover/movie?api_key=${apiKey}&with_genres=${concatenatedString}`;
+  let allMovies: Movie[] = [];
 
-  try {
-    const response = await fetch(url);
-    const data = (await response.json()) as MovieData;
+  for (let i = 1; i <= 3; i++) {
+    const url = `${baseUrl}/discover/movie?api_key=${apiKey}&with_genres=${concatenatedString}&page=${i}&per_page=20`;
+    console.log(url);
+    try {
+      const response = await fetch(url);
+      const data = (await response.json()) as MovieData;
 
-    if (response.ok) {
-      const movies: Movie[] = data.results;
-      return movies;
-    } else {
-      throw new Error(data.status_message);
+      if (response.ok) {
+        const movies: Movie[] = data.results;
+        allMovies = allMovies.concat(movies);
+      } else {
+        throw new Error(data.status_message);
+      }
+    } catch (error: unknown) {
+      throw new Error(`Failed to fetch movies`);
     }
-  } catch (error: unknown) {
-    throw new Error(`Failed to fetch action movies`);
   }
+
+  return allMovies;
 };
 
 export const uploadImage = async () => {

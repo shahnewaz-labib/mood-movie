@@ -20,8 +20,9 @@ function shuffle<T>(array: T[]): T[] {
 
 export default async function MovieContainer() {
   const emotion = "Sad";
-  let movies = await fetchMovies(emotion);
-  movies = shuffle(movies).slice(0, 3);
+  const movies = await fetchMovies(emotion);
+  console.log(movies.length);
+  // movies = shuffle(movies).slice(0, 3);
 
   //
   // const res = await uploadImage();
