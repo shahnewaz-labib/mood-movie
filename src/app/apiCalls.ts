@@ -37,7 +37,6 @@ export const fetchMovies = async (emotion: string): Promise<Movie[]> => {
 
   for (let i = 1; i <= 3; i++) {
     const url = `${baseUrl}/discover/movie?api_key=${apiKey}&with_genres=${concatenatedString}&page=${i}&per_page=20`;
-    console.log(url);
     try {
       const response = await fetch(url);
       const data = (await response.json()) as MovieData;
@@ -54,6 +53,18 @@ export const fetchMovies = async (emotion: string): Promise<Movie[]> => {
   }
 
   return allMovies;
+};
+
+export const getMovieDetails = async (movieId: string): Promise<Movie> => {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
+  console.log(url);
+
+  const response = await fetch(url);
+  const movie = (await response.json()) as Movie;
+
+  console.log(movie);
+
+  return movie;
 };
 
 export const uploadImage = async () => {
