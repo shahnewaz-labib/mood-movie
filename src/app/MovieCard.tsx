@@ -19,9 +19,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">
-            {movie.title + " (" + movie.release_date.slice(0, 4) + ")"}
-          </h2>
+          <h1 className="card-title">{movie.title}</h1>
+          <h1>Released: {movie.release_date.slice(0, 4)}</h1>
+          <h1>⭐ {movie.vote_average}</h1>
         </div>
       </div>
     </Link>
