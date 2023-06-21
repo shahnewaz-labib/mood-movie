@@ -3,10 +3,10 @@ import type { Movie, MovieData } from "./Interfaces";
 
 dotenv.config();
 
-const apiKey = process.env.TMDB_API_KEY as string;
+let apiKey = process.env.TMDB_API_KEY as string;
 const baseUrl = "https://api.themoviedb.org/3";
 
-function getGenres(emotion: string): string[] {
+export function getGenres(emotion: string): string[] {
   const emotionMap: { [key: string]: string[] } = {
     Angry: ["Action", "Thriller"],
     Disgust: ["Horror", "Gore"],
@@ -40,6 +40,9 @@ export const fetchMovies = async (emotion: string): Promise<Movie[]> => {
   let allMovies: Movie[] = [];
 
   for (let i = 1; i <= 3; i++) {
+    if (apiKey === undefined) {
+      apiKey = "1821d649b656b8933a7de260fcf28ee1";
+    }
     const url = `${baseUrl}/discover/movie?api_key=${apiKey}&with_genres=${concatenatedString}&page=${i}&per_page=20`;
 
     try {

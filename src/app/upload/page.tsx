@@ -1,8 +1,9 @@
 "use client";
 import dotenv from "dotenv";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, type ChangeEvent } from "react";
-import { type Emotion } from "../Interfaces";
+import type { Emotion } from "../Interfaces";
 
 dotenv.config();
 
@@ -88,7 +89,14 @@ export default function UploadPage() {
           </div>
         )}
         {detectedEmotion && !isLoading && (
-          <div className="text-center">Detected emotion: {detectedEmotion}</div>
+          <div className="text-center">
+            Detected emotion: {detectedEmotion}
+            <div className="p-4">
+              <Link href={`/recommendation/${detectedEmotion}`}>
+                Go to Recommendations
+              </Link>
+            </div>
+          </div>
         )}
       </div>
     </div>

@@ -19,6 +19,7 @@ function shuffle<T>(array: T[]): T[] {
 }
 
 export default async function MovieContainer({ emotion }: { emotion: string }) {
+  console.log(new Date());
   let movies = await fetchMovies(emotion);
   movies = shuffle(movies);
   console.log(movies.length);
