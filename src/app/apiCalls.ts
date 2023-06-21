@@ -8,9 +8,13 @@ const baseUrl = "https://api.themoviedb.org/3";
 
 function getGenres(emotion: string): string[] {
   const emotionMap: { [key: string]: string[] } = {
-    Angry: ["Action"],
-    Happy: ["Drama", "Comedy"],
-    Sad: ["Drama"],
+    Angry: ["Action", "Thriller"],
+    Disgust: ["Horror", "Gore"],
+    Fear: ["Horror", "Suspense"],
+    Happy: ["Comedy", "Romantic Comedy", "Animated"],
+    Neutral: ["Documentary", "Biography"],
+    Sad: ["Drama", "Romance"],
+    Surprise: ["Mystery", "Science Fiction"],
   };
 
   const resultArray = emotionMap[emotion];
@@ -37,6 +41,7 @@ export const fetchMovies = async (emotion: string): Promise<Movie[]> => {
 
   for (let i = 1; i <= 3; i++) {
     const url = `${baseUrl}/discover/movie?api_key=${apiKey}&with_genres=${concatenatedString}&page=${i}&per_page=20`;
+
     try {
       const response = await fetch(url);
       const data = (await response.json()) as MovieData;

@@ -24,3 +24,6 @@ export interface MovieData {
 export interface MovieCardProps {
   movie: Movie;
 }
+export interface Emotion {
+  emotion: string;
+}

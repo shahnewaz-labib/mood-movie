@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 function Home() {
   return (
     <div className={` ${montserrat.variable} font-montserrat  `}>
-      <MovieContainer />
+      <MovieContainer emotion="" />
     </div>
   );
 }
