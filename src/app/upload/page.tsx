@@ -58,9 +58,11 @@ export default function UploadPage() {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex items-center justify-center pt-20">
       <div className="m-auto text-center">
-        <h1 className="p-10 text-4xl">Upload an image</h1>
+        <h1 className="p-10 text-4xl">
+          Upload an image for emotion recognition
+        </h1>
         <input
           id="file-input"
           type="file"
@@ -84,16 +86,16 @@ export default function UploadPage() {
           </button>
         </div>
         {isLoading && (
-          <div className="text-center">
+          <div className="text-center text-2xl">
             Detecting emotion... <div className="spinner"></div>
           </div>
         )}
         {detectedEmotion && !isLoading && (
-          <div className="text-center">
+          <div className="text-center text-2xl">
             Detected emotion: {detectedEmotion}
             <div className="p-4">
               <Link href={`/recommendation/${detectedEmotion}`}>
-                Go to Recommendations
+                Go to your movie <strong>recommendations</strong>
               </Link>
             </div>
           </div>
