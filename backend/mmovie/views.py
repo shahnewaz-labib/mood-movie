@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from PIL import Image
 import cv2
 import numpy as np
 import os
