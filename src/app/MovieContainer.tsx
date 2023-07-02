@@ -25,7 +25,7 @@ export default async function MovieContainer({ emotion }: { emotion: string }) {
   console.log(movies.length);
 
   return (
-    <div className=" flex flex-wrap justify-evenly bg-pink-950">
+    <div className=" flex flex-wrap justify-evenly bg-pink-950 gap-4">
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}

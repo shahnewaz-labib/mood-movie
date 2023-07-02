@@ -1,3 +1,4 @@
+import "./MovieCard.css";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -20,8 +21,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
         </figure>
         <div className="card-body">
           <h1 className="card-title">{movie.title}</h1>
-          <h1>Released: {movie.release_date.slice(0, 4)}</h1>
-          <h1>⭐ {movie.vote_average}</h1>
+          <h1 className="release-year">Released: {movie.release_date.slice(0, 4)}</h1>
+          <h1 className="vote-rating">⭐ {movie.vote_average}</h1>
         </div>
       </div>
     </Link>

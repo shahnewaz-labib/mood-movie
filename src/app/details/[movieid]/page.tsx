@@ -14,11 +14,11 @@ export default async function page({
   return (
     <div className="relative bg-cover bg-fixed bg-center bg-no-repeat">
       <div className="flex justify-center pt-12">
-        <div className="max-w-[1000px]">
+        <div className="max-w-[1200px]">
           <div className="flex">
             <div className="flex-1">
               <Image
-                className="h-auto w-full"
+                className="h-auto w-full max-w-[700px] max-h-[600px]"
                 src={basePosterUrl + movie.poster_path}
                 alt={movie.title}
                 width={600}
@@ -50,7 +50,7 @@ export default async function page({
                 minutes
               </p>
               <br /> {/* Add an empty line here */}
-              <p className="text-2xl">
+              <p className="text-2xl overflow-auto max-h-64 pr-4">
                 <strong className="text-2xl">Plot:</strong> <br />{" "}
                 {movie.overview}
               </p>
