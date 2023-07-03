@@ -169,7 +169,7 @@ export default function UploadPage() {
   };
   return (//updated
     <div className="flex items-center justify-center h-screen">
-      <div className="text-center">
+      <div className="text-center mt-[-150px]">
         <h1 className="p-10 text-4xl">
           Upload an image for emotion recognition
         </h1>
