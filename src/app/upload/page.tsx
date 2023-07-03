@@ -209,7 +209,7 @@ export default function UploadPage() {
               ></video>
             </div>
             <div className="p-4">
-              <button className="btn-primary btn" onClick={handleCapture}>
+              <button className="bg-gray-500 text-white btn" onClick={handleCapture}>
                 Capture
               </button>
             </div>
