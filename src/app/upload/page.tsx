@@ -169,7 +169,7 @@ export default function UploadPage() {
   };
   return (//updated
     <div className="flex items-center justify-center h-screen">
-      <div className="text-center">
+      <div className="text-center mt-[-150px]">
         <h1 className="p-10 text-4xl">
           Upload an image for emotion recognition
         </h1>
@@ -209,7 +209,7 @@ export default function UploadPage() {
               ></video>
             </div>
             <div className="p-4">
-              <button className="btn-primary btn" onClick={handleCapture}>
+              <button className="bg-gray-500 text-white btn" onClick={handleCapture}>
                 Capture
               </button>
             </div>
