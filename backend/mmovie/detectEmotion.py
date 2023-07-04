@@ -18,14 +18,16 @@ def getEmotion(image_path):
     }
 
     # sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-    model_path = os.path.join("mmovie", "models", "model_optimal.h5")
+    model_path = os.path.join("mmovie", "models", "model_optimal2.h5")
     model_path = os.path.abspath(model_path)
 
     model = tf.keras.models.load_model(model_path)
 
-    img = tf.keras.preprocessing.image.load_img(
-        image_path, target_size=(48, 48), color_mode="grayscale"
-    )
+    # img = tf.keras.preprocessing.image.load_img(
+    #     image_path, target_size=(48, 48), color_mode="grayscale"
+    # )
+    img = tf.keras.preprocessing.image.load_img(image_path, target_size=(64, 64,3), color_mode='rgb')
+
     img = tf.keras.preprocessing.image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
 
